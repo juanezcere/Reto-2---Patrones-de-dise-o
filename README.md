@@ -8,6 +8,10 @@ Juan Esteban García Cardona
 
 Juan Pablo Lasprilla Correa
 
+## Repositorio
+
+https://github.com/juanezcere/Reto-2---Patrones-de-dise-o
+
 ## 📌 Problemática
 
 En Medellín, muchos artistas independientes enfrentan dificultades para organizar presentaciones, ya que deben coordinar múltiples actores (sonido, transporte, equipos,, personal), en procesos informales y fragmentados que limitan su circulación.
