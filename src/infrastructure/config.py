@@ -2,17 +2,29 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from src.infrastructure.adapters.db.models import Base
 
-DATABASE_URL = "sqlite:///./medellin_artists.db"
+class DatabaseSingleton:
+    _instance = None
 
-engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+    def __new__(cls):
+        if cls._instance is None:
+            cls._instance = super(DatabaseSingleton, cls).__new__(cls)
+            cls._instance.engine = create_engine(
+                "sqlite:///./medellin_artists.db", 
+                connect_args={"check_same_thread": False}
+            )
+            cls._instance.SessionLocal = sessionmaker(
+                autocommit=False, autoflush=False, bind=cls._instance.engine
+            )
+        return cls._instance
 
 def init_db():
-    Base.metadata.create_all(bind=engine)
+    db = DatabaseSingleton()
+    Base.metadata.create_all(bind=db.engine)
 
 def get_db():
-    db = SessionLocal()
+    db = DatabaseSingleton()
+    session = db.SessionLocal()
     try:
-        yield db
+        yield session
     finally:
-        db.close()
+        session.close()
