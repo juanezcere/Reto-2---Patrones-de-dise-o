@@ -22,7 +22,7 @@ Crear una plataforma que permita a los artistas independientes coordinar de mane
 
 ## 💻 Backend
 
-### ⚒️ Arquitectura planteada (ACTUALIZADO)
+### ⚒️ Arquitectura planteada
 
 Replanteando la solución y teniendo en cuenta los tiempos de desarrollo con los que se cuentan, se propone realizar para el backend en lugar de una arquitectura basada en eventos, la cual sería ideal en un futuro, una arquitectura por capas hexagonal, ya que esta permite separar las abtracciones de las implementaciones fácilmente.
 
@@ -68,6 +68,17 @@ A continuación se presenta el diagrama de clases de la implementación del buil
 
 Este por su parte es el diagrama de clases del singleton implementado en la base de datos.
 ![Diagrama de clases del singleton implementado en la base de datos](image-1.png)
+
+### Patrones de diseño creacionales
+
+### 🧾 Diagrama de clases
+
+Diagrama de clases del adapter implementado en la base de datos
+![Diagrama de clases del adapter implementado en la base de datos](patron_adapter.png)
+
+Diagrama de clases del patrón decorator implementado en las validaciones de email
+
+![Diagrama de clases del patrón decorator implementado en las validaciones de email](patron_decorator.png)
 
 ### 📦 Database
 
